@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../shared/data.service';
+import { Todo } from '../shared/todo.model';
 
 @Component({
   selector: 'app-todos',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  constructor() { }
+  //todos property. this connects to ngFor in the template
+  todos: Todo[]
+
+  //set value of the property
+  //inject the service
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.todos = this.dataService.getAllTodos();
   }
 
 }
