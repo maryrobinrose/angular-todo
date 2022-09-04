@@ -25,6 +25,7 @@ export class TodosComponent implements OnInit {
     console.log("FORM SUBMITTED");
     console.log(form);
 
+    if (form.invalid) return alert("Form is invalid");
     //this adds a todo
     this.dataService.addTodo(new Todo(form.value.text ));
 
