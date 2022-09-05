@@ -25,14 +25,18 @@ export class TodosComponent implements OnInit {
   }
 
   onFormsubmit(form: NgForm) {
-    console.log("FORM SUBMITTED");
-    console.log(form);
 
     //show errors if invalid
     if (form.invalid) return this.showValidationErrors = true;
 
     //this adds a todo
     this.dataService.addTodo(new Todo(form.value.text ));
+
+    //prevents validation from showing up when form is reset after a todo is added
+    this.showValidationErrors = false;
+
+    //removes text in the input after todo has been added
+    form.reset();
 
   }
 }
