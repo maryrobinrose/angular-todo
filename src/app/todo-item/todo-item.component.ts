@@ -16,6 +16,8 @@ export class TodoItemComponent implements OnInit {
   //void doesn't send any data, just a signal
   @Output() todoClicked: EventEmitter<void> = new EventEmitter();
 
+  @Output() editClicked: EventEmitter<void> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -23,6 +25,10 @@ export class TodoItemComponent implements OnInit {
 
   onTodoClicked() {
     this.todoClicked.emit();
+  }
+
+  onEditClicked() {
+    this.editClicked.emit();
   }
 
 }

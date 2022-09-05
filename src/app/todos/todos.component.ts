@@ -45,4 +45,14 @@ export class TodosComponent implements OnInit {
    todo.completed = !todo.completed;
   }
 
+  editTodo(todo: Todo) {
+    // we need 
+      // - index of todo
+      // - user needs to enter new update info
+    
+      const index = this.todos.indexOf(todo);
+
+    // this.dataService.updateTodo();
+  }
+
 }
