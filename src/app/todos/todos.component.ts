@@ -39,4 +39,10 @@ export class TodosComponent implements OnInit {
     form.reset();
 
   }
+
+  //set todo to completed
+  toggleCompleted(todo: Todo) {
+   todo.completed = !todo.completed;
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../shared/todo.model';
 
 @Component({
@@ -8,11 +8,21 @@ import { Todo } from '../shared/todo.model';
 })
 export class TodoItemComponent implements OnInit {
 
-  todo: Todo = new Todo('Test');
+  //set property to an input property
+  @Input() todo: Todo;
+
+  //emits even each time todo is clicked
+  //parent component (todo.component) can use event binding to listen to the vents
+  //void doesn't send any data, just a signal
+  @Output() todoClicked: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onTodoClicked() {
+    this.todoClicked.emit();
   }
 
 }

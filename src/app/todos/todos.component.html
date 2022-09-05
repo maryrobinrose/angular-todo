@@ -32,8 +32,12 @@
     <div class="container">
 
         <div class="todos-list">
-            <app-todo-item>
-
+            <!-- set todo property on app-todo-item component
+            connects to @Input() todo: Todo; in todo-item.component.ts -->
+            <app-todo-item 
+                *ngFor="let todo of todos" 
+                [todo]="todo" 
+                (todoClicked) ="toggleCompleted(todo)">
             </app-todo-item>
         </div>
 
