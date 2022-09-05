@@ -11,7 +11,10 @@ import { Todo } from '../shared/todo.model';
 export class TodosComponent implements OnInit {
 
   //todos property. this connects to ngFor in the template
-  todos: Todo[]
+  todos: Todo[];
+
+  //property to hide or show validation error
+  showValidationErrors: boolean;
 
   //set value of the property
   //inject the service
@@ -25,7 +28,9 @@ export class TodosComponent implements OnInit {
     console.log("FORM SUBMITTED");
     console.log(form);
 
-    if (form.invalid) return alert("Form is invalid");
+    //show errors if invalid
+    if (form.invalid) return this.showValidationErrors = true;
+
     //this adds a todo
     this.dataService.addTodo(new Todo(form.value.text ));
 
