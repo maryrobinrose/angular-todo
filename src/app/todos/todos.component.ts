@@ -59,7 +59,19 @@ export class TodosComponent implements OnInit {
 
       let dialogRef = this.dialog.open(EditTodoDialogComponent, {
         width: '700px',
+        //pass in data so the input actually edits the todo
+        data: todo
+
       });
+
+      //this is an observable
+      dialogRef.afterClosed().subscribe((result) => {
+        //if there's a result (it could be null)
+        if (result) {
+          this.dataService.updateTodo(index, result);
+        }
+  
+      })  
 
     // this.dataService.updateTodo();
   }

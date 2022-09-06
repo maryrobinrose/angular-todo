@@ -21,11 +21,26 @@ export class EditTodoDialogComponent implements OnInit {
   }
 
   close() {
+    //no result on close, like canceling the dialog
     this.dialogRef.close();
   }
 
   onFormSubmit(form: NgForm) {
-    
+
+    //create new object
+    //set it to all of the fields from this.todo
+    //creating an object like this makes it scalable 
+    const updatedTodo = {
+      //provides all the fields and values of this.todo
+      ...this.todo,
+      ...form.value
+
+    }
+
+
+    //close with a value
+    //pass in the object
+    this.dialogRef.close(updatedTodo);
   }
 
 }
