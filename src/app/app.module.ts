@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,14 +10,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditTodoDialogComponent } from './edit-todo-dialog/edit-todo-dialog.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
-import { TooltipDirective } from './tooltip.directive';
+import { ToolTipSingletonDirective } from './shared/tool-tip-singleton.directive';
+import { ToolTipDirective } from './shared/tooltip.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
     TodoItemComponent,
     EditTodoDialogComponent,
-    TooltipDirective
+    ToolTipDirective,
+    ToolTipSingletonDirective
   ],
   imports: [
     BrowserModule,

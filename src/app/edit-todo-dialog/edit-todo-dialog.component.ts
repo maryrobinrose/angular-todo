@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Todo } from '../shared/todo.model';
@@ -14,8 +14,7 @@ export class EditTodoDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<EditTodoDialogComponent>,
 
     //dialog data with the token
-    @Inject(MAT_DIALOG_DATA) public todo: Todo
-    ) { }
+    @Inject(MAT_DIALOG_DATA) public todo: Todo) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +36,6 @@ export class EditTodoDialogComponent implements OnInit {
       ...form.value
 
     }
-
 
     //close with a value
     //pass in the object

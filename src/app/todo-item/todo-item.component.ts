@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../shared/todo.model';
-import tippy from 'tippy.js';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,7 +8,7 @@ import tippy from 'tippy.js';
 })
 
 //AfterViewInit is a lifecycle hook, need access to html elements
-export class TodoItemComponent implements OnInit, AfterViewInit {
+export class TodoItemComponent implements OnInit {
 
   //set property to an input property
   @Input() todo: Todo;
@@ -21,17 +20,14 @@ export class TodoItemComponent implements OnInit, AfterViewInit {
   @Output() editClicked: EventEmitter<void> = new EventEmitter();
   @Output() deleteClicked: EventEmitter<void> = new EventEmitter();
 
-  @ViewChild('editBtn') editBtnElRef: ElementRef<HTMLElement>
+  test: string = "Default Value";
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    tippy(this.editBtnElRef.nativeElement, {
-      content: 'Edit todo'
-    });
+    setTimeout(() => {
+      this.test = "New Value"
+    }, 1000)
   }
 
   onTodoClicked() {

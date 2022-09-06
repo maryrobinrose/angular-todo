@@ -1,21 +1,21 @@
+
+
 <div class="todo-item" (click)="onTodoClicked()" [class.completed]="todo.completed">
     <div class="check-box">
         <i class="material-icons">check</i>
     </div>
-    
-    <div class="todo-check">
-        <!-- this todo is the todo from ngFor -->
+
+    <div class="todo-text">
         {{ todo.text }}
     </div>
 
-    <!-- stopPropagation stops these buttons from selecting completed/not completed -->
-    <div class="todo-controls-box" (click)="$event.stopPropagation()">
-        <div class="todo-control-button" #editBtn (click)="onEditClicked()">
+    <div class="todo-controls-box" appToolTipSingleton (click)="$event.stopPropagation()">
+        <div class="todo-control-button" appToolTip="Edit Todo" (click)="onEditClicked()">
             <i class="material-icons">edit</i>
         </div>
-        <div class="todo-control-button is-danger" (click)="onDeleteClicked()">
+
+        <div class="todo-control-button is-danger" appToolTip="Delete Todo" (click)="onDeleteClicked()">
             <i class="material-icons">delete</i>
         </div>
     </div>
-
 </div>

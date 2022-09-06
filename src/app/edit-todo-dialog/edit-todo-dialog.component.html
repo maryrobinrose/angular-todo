@@ -1,24 +1,23 @@
 <h1 class="title">Edit Todo</h1>
-
-<!-- this is from the Angular Material design library -->
 <div mat-dialog-content>
+    
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
         <div class="field">
             <div class="control">
-                <!-- use property binding on ngModel -->
-                <input 
-                    type="text" 
-                    class="input" 
-                    [ngModel]="todo.text" 
+                <input
+                    type="text"
+                    class="input"
+                    [ngModel]="todo.text"
                     #todoTextField="ngModel"
-                    name="text" 
+                    name="text"
                     required
                     minlength="2"
                     placeholder="Type todo text here...">
             </div>
+
             <div *ngIf="todoTextField.invalid">
-                <p class="help is-danger" *ngIf="todoTextField.errors?.['required']">Please enter the text of your todo</p>
-                <p class="help is-danger" *ngIf="todoTextField.errors?.['minlength']">Todo text must be at least 2 characters</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors.required">Please enter the text of your todo</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors.minlength">Todo text must be at least 2 characters</p>
             </div>
         </div>
 
@@ -32,8 +31,10 @@
             <div class="control">
                 <button type="submit" class="button alt-gradient-button">
                     <i class="material-icons">save</i>
-                    Save</button>
+                    Save
+                </button>
             </div>
         </div>
     </form>
+
 </div>
