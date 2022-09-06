@@ -15,8 +15,8 @@ export class TodoItemComponent implements OnInit {
   //parent component (todo.component) can use event binding to listen to the vents
   //void doesn't send any data, just a signal
   @Output() todoClicked: EventEmitter<void> = new EventEmitter();
-
   @Output() editClicked: EventEmitter<void> = new EventEmitter();
+  @Output() deleteClicked: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 
@@ -27,8 +27,12 @@ export class TodoItemComponent implements OnInit {
     this.todoClicked.emit();
   }
 
-  onEditClick() {
+  onEditClicked() {
     this.editClicked.emit();
+  }
+
+  onDeleteClicked() {
+    this.deleteClicked.emit();
   }
 
 }
