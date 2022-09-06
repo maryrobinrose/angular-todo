@@ -26,6 +26,7 @@ export class EditTodoDialogComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    if (form.invalid) return
 
     //create new object
     //set it to all of the fields from this.todo
