@@ -27,7 +27,7 @@ export class TodoItemComponent implements OnInit {
     this.todoClicked.emit();
   }
 
-  onEditClicked() {
+  onEditClick() {
     this.editClicked.emit();
   }
 

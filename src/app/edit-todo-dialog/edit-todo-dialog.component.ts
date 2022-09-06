@@ -12,10 +12,16 @@ export class EditTodoDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditTodoDialogComponent>,
+
+    //dialog data with the token
     @Inject(MAT_DIALOG_DATA) public todo: Todo
     ) { }
 
   ngOnInit(): void {
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
   onFormSubmit(form: NgForm) {
